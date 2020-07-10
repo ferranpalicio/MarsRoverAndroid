@@ -1,0 +1,27 @@
+ext {
+    androidMinSdkVersion = 21
+    androidTargetSdkVersion = 28
+    androidCompileSdkVersion = 28
+
+    kotlinVersion = '1.3.31'
+
+    jetpackVersion = '1.0.0'
+    daggerVersion = '2.22.1'
+
+
+    libraries = [kotlinStdLib    : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+                 appCompat       : "androidx.appcompat:appcompat:$jetpackVersion",
+                 constraintLayout: "androidx.constraintlayout:constraintlayout:1.1.3",
+                 ktxCore         : "androidx.core:core-ktx:1.0.1",
+                 fragment        : "androidx.fragment:fragment-ktx:$jetpackVersion",
+                 gson            : "com.squareup.retrofit2:converter-gson:2.3.0",
+                 dagger          : "com.google.dagger:dagger:$daggerVersion",
+                 daggerCompiler  : "com.google.dagger:dagger-compiler:$daggerVersion",
+                 viewmodelKtx    : "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0",
+                 fragmentKtx     : "androidx.fragment:fragment-ktx:1.2.5"]
+
+    testLibraries = [junit          : "junit:junit:4.12",
+                     mockitoKotlin  : "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0",
+                     coroutinesTest : "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.2.1",
+                     archCoreTesting: "androidx.arch.core:core-testing:2.0.1"]
+}

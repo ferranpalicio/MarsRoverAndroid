@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion androidCompileSdkVersion
+    defaultConfig {
+        applicationId "com.pal.populartv"
+        minSdkVersion androidMinSdkVersion
+        targetSdkVersion androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+
+    implementation libraries.kotlinStdLib
+
+    implementation libraries.appCompat
+    implementation libraries.ktxCore
+    implementation libraries.fragmentKtx
+    implementation libraries.constraintLayout
+    implementation libraries.appCompat
+    implementation libraries.fragment
+    implementation libraries.gson
+
+    implementation libraries.dagger
+    kapt libraries.daggerCompiler
+
+    testImplementation testLibraries.archCoreTesting
+    testImplementation testLibraries.junit
+    testImplementation testLibraries.mockitoKotlin
+    testImplementation testLibraries.coroutinesTest
+
+}
